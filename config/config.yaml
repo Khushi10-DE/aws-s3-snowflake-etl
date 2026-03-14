@@ -1,0 +1,22 @@
+# config/config.yaml
+# -------------------
+# Non-sensitive config only.
+# Credentials are loaded from environment variables / .env file.
+# See .env.example for required variables.
+
+aws:
+  region: us-east-1
+  bucket: your-s3-bucket-name
+  # aws_access_key_id and aws_secret_access_key loaded from env
+
+snowflake:
+  warehouse: COMPUTE_WH
+  database: NYC_TAXI_DB
+  schema: RAW
+  role: SYSADMIN
+  # user, password, account loaded from env
+
+pipeline:
+  s3_key: raw/nyc_taxi/yellow_tripdata_2024-01.parquet
+  target_table: YELLOW_TAXI_TRIPS
+  load_mode: append   # options: append | truncate | overwrite
